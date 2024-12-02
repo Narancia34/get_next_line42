@@ -6,7 +6,7 @@
 /*   By: mgamraou <mgamraou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 20:09:37 by mgamraou          #+#    #+#             */
-/*   Updated: 2024/11/28 16:07:32 by mgamraou         ###   ########.fr       */
+/*   Updated: 2024/12/02 10:58:09 by mgamraou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ char	*get_next_line(int fd)
 	char		*line;
 	static char	*remainder;
 
-	if (fd < 0 || read(fd, NULL, 0) < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (free(remainder), NULL);
 	if (!remainder)
 		remainder = ft_strdup("");
 	if (!ft_strchr(remainder, '\n'))
